@@ -2,8 +2,8 @@ import { useState } from "react"
 
 function ToDoList()
 {
-    const [tasks , setTasks] = useState(["Eat Breakfast" , "Take a shower" , "Walk the dog"])
-    const [newTast , setNewTask] = useState()
+    const [tasks , setTasks] = useState([])
+    const [newTask , setNewTask] = useState()
 
     function handleInputChange(event)
     {
@@ -12,31 +12,47 @@ function ToDoList()
 
     function addTask()
     {
-
+        if(newTask.trim() !== "")
+        {
+            setTasks(t => [...t , newTask])
+            setNewTask("")
+        }    
     }
 
-    function deleteTask()
+    function deleteTask(index)
     {
-
+        const updatedTasks = tasks.filter((_ , i) => i !== index)
+        setTasks(updatedTasks)
     }
     function moveTaskUp(index)
     {
-
+        const updatedTasks = [...tasks]
+        if(index > 0)
+        {
+            
+            [ updatedTasks[index], updatedTasks[index - 1] ] = [ updatedTasks[index - 1] , updatedTasks[index] ]
+            setTasks(updatedTasks)
+        }            
     }
 
     function moveTaskDown(index)
     {
-
+        const updatedTasks = [...tasks]
+        if(index < updatedTasks.length - 1)
+        {
+            [updatedTasks[index] , updatedTasks[index + 1]] = [updatedTasks[index + 1] , [updatedTasks[index]]]
+        }    
+        setTasks(updatedTasks)
     }
 
     return (
         <div className="to-do-list">
-            <h1>To-Do-List</h1>
+            <h1>To-Do-List😎</h1>
 
             <div>
                 <input type="text"
                 placeholder="Enter a task ..."
-                value={newTast}
+                value={newTask}
                 onChange={handleInputChange} 
                 />
                 
@@ -50,9 +66,15 @@ function ToDoList()
                 
                     <li key = {index}>
                         <span className="text">{task}</span>
+
                         <button className="delete-button"
                         onClick={() => deleteTask(index)}>
-                            Delete
+                            ✏️
+                        </button>
+
+                        <button className="delete-button"
+                        onClick={() => deleteTask(index)}>
+                            🗑️
                         </button>
 
                         <button className="move-button"
@@ -61,7 +83,7 @@ function ToDoList()
                         </button>
 
                         <button className="move-button"
-                        onClick={() => moveTaskUp(index)}>
+                        onClick={() => moveTaskDown(index)}>
                             👇
                         </button>
                     </li>

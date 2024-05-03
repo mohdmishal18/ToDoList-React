@@ -1,6 +1,6 @@
 body
 {
-    background-color: hsl(180, 7%, 9%);
+    background-color: hsl(0, 0%, 15%);
 }
 
 .to-do-list
@@ -15,6 +15,7 @@ h1
     font-size: 4rem;
     color: white;
 }
+
 button
 {
     font-size: 1.7rem;
@@ -29,7 +30,7 @@ button
 
 .add-button
 {
-    background-color: hsl(0, 0%, 0%);
+    background-color: hsl(89, 60%, 33%);
 }
 
 .add-button:hover
@@ -69,8 +70,7 @@ input[type="text"]
 
 ol
 {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding: 0px 40px 0px 40px;
 }
 
 li
