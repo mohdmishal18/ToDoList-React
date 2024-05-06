@@ -48,6 +48,16 @@ button
     background-color: hsl(0, 49%, 63%);
 }
 
+.edit-button
+{
+    background-color: hsl(120, 76%, 50%);
+}
+
+.edit-button:hover
+{
+    background-color: hsl(120, 93%, 34%);
+}
+
 .move-button
 {
     background-color: hsl(268, 100%, 30%);
@@ -91,9 +101,10 @@ li
     flex: 1;
 }
 
-.delete-button , .move-button
+.delete-button , .move-button,.edit-button
 {
     padding: 8px 12px;
     font-size: 1.4rem;
     margin-left: 10px;
 }
+
