@@ -1,34 +1,49 @@
-import React, { useState } from "react";
+import React, { useState , useRef } from "react";
 
 function AddTask({ onAddTask })
 {
     const [newTask, setNewTask] = useState("");
+    const input = useRef(null)
+    // function handleInputChange(event) 
+    // {
+    //     setNewTask(event.target.value);
+    // }
 
-    function handleInputChange(event) 
+    const handleSumbit = (e) =>
     {
-        setNewTask(event.target.value);
+        e.preventDefault()
+        onAddTask(newTask)
+        setNewTask('')
     }
 
-    function addTask() 
-    {
-        if (newTask.trim() !== "")
-        {
-            onAddTask(newTask);
-            setNewTask("");
-        }
-    }
+    // function addTasks(text) 
+    // {
+    //     if (text.trim() !== "")
+    //     {
+    //         const newTask = {id : uuidv4 () , text : text , completed : false ,isEditing : false}
+    //         onAddTask(newTask);
+    //         setNewTask("");
+    //         toast.success('Successfully added task!')
+    //     }
+    //     else
+    //     {
+    //         toast.error("Enter valid task")
+    //     }
+    // }
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Enter a task ..."
-                value={newTask}
-                onChange={handleInputChange}
-            />
-            <button className="add-button" onClick={addTask}>
-                Add
-            </button>
+            <form className='TodoForm' onSubmit={handleSumbit}>
+                <input
+                    type="text"
+                    placeholder="Enter a task ..."
+                    value={newTask}
+                    onChange={((e)=>setNewTask(e.target.value))}
+                />
+                <button className="add-button" type="submit">
+                    Add
+                </button>
+            </form>
         </div>
     );
 }

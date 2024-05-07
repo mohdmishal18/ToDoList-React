@@ -77,14 +77,11 @@ input[type="text"]
     color: hsl(0, 0%, 0%, 0.5);
 }
 
-
-ol
+.Todo
 {
-    padding: 0px 40px 0px 40px;
-}
-
-li
-{
+    width: 60%;
+    margin-top: 15px;
+    margin-left: 20%;
     font-size: 2rem;
     font-weight: bold;
     padding: 15px;
@@ -96,10 +93,22 @@ li
     align-items: center;
 }
 
-.text
+
+.incompleted
 {
+    color: hsl(0, 0%, 0%);
+    cursor: pointer;
     flex: 1;
 }
+  
+  .completed 
+  {
+    color: hsl(0, 0%, 0%, 0.5);
+    text-decoration: line-through;
+    cursor: pointer;
+    flex: 1;
+  }
+  
 
 .delete-button , .move-button,.edit-button
 {
@@ -108,3 +117,46 @@ li
     margin-left: 10px;
 }
 
+.EditTaskForm {
+    width: 60%;
+    margin-top: 15px;
+    margin-left: 20%;
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 15px;
+    background-color: hsl(0, 0%, 97%);
+    margin-bottom: 10px;
+    border: 3px solid hsl(0, 16%, 62%);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Align items to the end */
+}
+
+/* Style for the input field in EditTask */
+.EditTaskInput {
+    flex: 1;
+    font-size: 1.6rem;
+    padding: 10px;
+    border: 2px solid hsl(0, 14%, 64%, 0.5);
+    border-radius: 5px;
+    color: hsl(0, 0%, 0%, 0.5);
+    margin-right: 10px; /* Add some margin to the right */
+}
+
+/* Style for the submit button in EditTask */
+.EditTaskButton {
+    padding: 8px 12px;
+    font-size: 1.4rem;
+    background-color: hsl(120, 76%, 50%);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+/* Hover effect for the submit button in EditTask */
+.EditTaskButton:hover {
+    background-color: hsl(120, 93%, 34%);
+}

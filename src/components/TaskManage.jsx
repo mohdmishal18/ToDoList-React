@@ -1,11 +1,11 @@
 import React from "react";
 
-function TaskManage({ task, index, deleteTask, moveTaskUp, moveTaskDown })
+function TaskManage({ task, index, deleteTask, moveTaskUp, moveTaskDown,completedToggel, editTodo })
 {
     return (
-        <li>
-            <span className="text">{task}</span>
-            <button className="edit-button" onClick={() => console.log("Edit task")}>
+        <div className="Todo">
+            <span onClick={()=>completedToggel(task.id)} className={`${task.completed ? 'completed' : "incompleted"}`}>{task.text}</span>
+            <button className="edit-button" key={task.id} onClick={() => editTodo(task.id)}>
                 ✏️
             </button>
             <button className="delete-button" onClick={() => deleteTask(index)}>
@@ -17,7 +17,7 @@ function TaskManage({ task, index, deleteTask, moveTaskUp, moveTaskDown })
             <button className="move-button" onClick={() => moveTaskDown(index)}>
                 👇
             </button>
-        </li>
+        </div>
     );
 }
 
